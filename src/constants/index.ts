@@ -40,6 +40,7 @@ export const OPENAI_MODELS_TITLES: Record<OpenAIModel, string> = {
 } as const;
 
 export const OPENAI_MODELS_DESCRIPTION: Record<OpenAIModel, string> = {
+  kimi: 'kimi',
   'text-davinci-003': 'Text Davinci 003',
   'text-davinci-002': 'Text Davinci 002',
   'gpt-3.5-turbo-0613': 'GPT-3.5 Turbo 0613',
