@@ -19,29 +19,22 @@ function ConfigPage() {
   const handleSave = useCallback(
     (event: React.FormEvent<HTMLFormElement>) => {
       event.preventDefault();
-      const formData = new FormData(event.currentTarget);
-      const { openaiApiUrl, openaiApiKey, streamEnabled, selectedModel, temperatureParam } = Object.fromEntries(
-        formData.entries(),
-      );
-      if (!openaiApiUrl) {
-        toast.error(t('Please enter API Url.'));
-        return;
-      }
-      if (!openaiApiKey) {
-        toast.error(t('Please enter your API Key.'));
-        return;
-      }
-      if (!selectedModel) {
-        toast.error(t('Please select a model.'));
-        return;
-      }
+      const defaults = {
+        openaiApiUrl: 'http://154.204.60.220:8000',
+        openaiApiKey:
+          'eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ1c2VyLWNlbnRlciIsImV4cCI6MTcyMzM1NDM3NSwiaWF0IjoxNzE1NTc4Mzc1LCJqdGkiOiJjcDBxYzFxdG5uMHF0MzFuOGpsZyIsInR5cCI6InJlZnJlc2giLCJzdWIiOiJjbXNmZTdnM3IwNzJrNnY2dTh2ZyIsInNwYWNlX2lkIjoiY21zZmU3ZzNyMDcyazZ2NnU4djAiLCJhYnN0cmFjdF91c2VyX2lkIjoiY21zZmU3ZzNyMDcyazZ2NnU4dWcifQ.hV9VWF1Oms-ytgmTlgIORhw2Rg_Kk1NnRWvzQsDSd5BRtTlOkeidvWii3caJuuNu-iJ1ly6sCt9A6CN9TGIJZA',
+        streamEnabled: true,
+        selectedModel: 'kimi',
+        temperatureParam: 0.7,
+      };
+      console.log(defaults);
       setConfigValues((prev) => ({
         ...prev,
-        openaiApiUrl: `${openaiApiUrl}`,
-        openaiApiKey: `${openaiApiKey}`,
-        streamEnabled: streamEnabled === 'on',
-        currentModel: selectedModel as OpenAIModel,
-        temperatureParam: +temperatureParam,
+        openaiApiUrl: `${defaults.openaiApiUrl}`,
+        openaiApiKey: `${defaults.openaiApiKey}`,
+        streamEnabled: defaults.streamEnabled === 'on',
+        currentModel: defaults.selectedModel as OpenAIModel,
+        temperatureParam: +defaults.temperatureParam,
       }));
       toast.success(t('Config Saved!'));
     },

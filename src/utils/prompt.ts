@@ -5,7 +5,7 @@ export const getTranslatePrompt = (fromLang: Language, toLang: Language) => {
     if (toLang === 'zh-Hant') {
       return '翻译成繁体白话文';
     } else if (toLang === 'zh-Hans') {
-      return '翻译成简体白话文';
+      return '翻译成中文';
     } else if (toLang === 'yue') {
       return '翻译成粤语白话文';
     }
@@ -18,7 +18,7 @@ export const getTranslatePrompt = (fromLang: Language, toLang: Language) => {
       return '翻譯為繁體';
     }
     if (toLang === 'zh-Hans') {
-      return '翻译成简体';
+      return '翻译成中文';
     }
     if (toLang === 'ja') {
       return 'Translate into Japanese.';

@@ -1,6 +1,7 @@
 /* eslint-disable camelcase */
 
 export const GPT_MODELS = [
+  'kimi',
   'gpt-3.5-turbo-0613',
   'gpt-3.5-turbo-0301',
   'gpt-3.5-turbo',
@@ -21,6 +22,7 @@ export type GPTModel = (typeof GPT_MODELS)[number];
 export type OpenAIModel = (typeof OPENAI_MODELS)[number];
 
 export const OPENAI_MODELS_TITLES: Record<OpenAIModel, string> = {
+  kimi: 'kimi',
   'text-davinci-003': 'text-davinci-003',
   'text-davinci-002': 'text-davinci-002',
   'gpt-3.5-turbo-0613': 'gpt-3.5-turbo-0613',

@@ -45,7 +45,6 @@ function Header() {
   const { t } = useTranslation();
   return (
     <>
-      <AboutModal />
       <Navbar className="sticky top-0 z-50 bg-primary text-primary-content">
         <div className="flex-1">
           <label className="text-xl normal-case btn btn-ghost" htmlFor="about-modal">
@@ -53,7 +52,6 @@ function Header() {
           </label>
         </div>
         <div className="flex-none">
-          <ConfigButton />
           <ToggleThemeButton />
           <SwitchLanguageButton />
         </div>
