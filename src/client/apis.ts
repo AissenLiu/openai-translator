@@ -1,5 +1,5 @@
 export default {
-  baseUrl: 'http://154.204.60.220:8000',
+  baseUrl: 'https://api.chatmiko.com',
   endpoints: {
     v1: {
       completions: {
