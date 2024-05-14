@@ -12,7 +12,7 @@ function AboutModal() {
       <input type="checkbox" id="about-modal" className="modal-toggle" />
       <label htmlFor="about-modal" className="cursor-pointer modal">
         <label className="relative modal-box" htmlFor="">
-          <h3 className="text-lg font-bold">About OpenAI Translator</h3>
+          <h3 className="text-lg font-bold">About Miko Translator</h3>
           <p className="py-4">Author: Lance.Moe</p>
           <p className="grid grid-cols-2 gap-2 py-4">
             <a
@@ -47,7 +47,7 @@ function Header() {
     <>
       <Navbar className="sticky top-0 z-50 bg-primary text-primary-content">
         <div className="flex-1">
-          <label className="text-xl normal-case btn btn-ghost" htmlFor="about-modal">
+          <label className="xl:text-xl sm:text-lg normal-case btn btn-ghost" htmlFor="about-modal">
             {t('topBar.title')}
           </label>
         </div>

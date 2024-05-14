@@ -12,8 +12,8 @@ const pwaOptions: Partial<VitePWAOptions | ManifestOptions> = {
   description:
     'A translator app that uses OpenAI GPT-3 to translate between languages. It is a PWA that can be installed on your phone or desktop.',
   manifest: {
-    short_name: 'OpenAI Translator',
-    name: 'OpenAI Translator',
+    short_name: 'Miko Translator',
+    name: 'Miko Translator',
     display: 'standalone',
     icons: [
       {
