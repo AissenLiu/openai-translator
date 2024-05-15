@@ -6,19 +6,18 @@
 ![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
 ![React Query](https://img.shields.io/badge/-React%20Query-FF4154?style=for-the-badge&logo=react%20query&logoColor=white)
 
-# OpenAI Translator
+# OpenAI 翻译器
 
-A translator app that uses OpenAI GPT-3 to translate between languages. It is a PWA that can be installed on your phone or desktop.
+一个使用 OpenAI GPT-3 进行语言翻译的应用程序。这是一个可以安装在您的手机或桌面上的 PWA。
 
 https://translator.lance.moe/
 
-Support ChatGPT engine (GPT 3.5).
+支持 ChatGPT 引擎（GPT 3.5）。
 
 <img width="970" alt="image" src="https://user-images.githubusercontent.com/18505474/222828200-948eef23-bf59-43af-ac27-1484c2bcd406.png">
 
 <img width="1336" alt="image" src="https://user-images.githubusercontent.com/18505474/222924658-012a1089-11f1-474a-99c1-c799aa73d793.png">
-
-## Tech Stack
+## 技术栈
 
 - OpenAI API
 - React 18
@@ -31,98 +30,126 @@ Support ChatGPT engine (GPT 3.5).
 - PWA
 - Cloudflare Pages
 
-I think this project will help you learn these techniques.
+我认为这个项目将帮助你学习这些技术。
 
-If you like this project, please don't forget to give this project a star, thanks.
+如果你喜欢这个项目，请不要忘记给这个项目一个星标，谢谢。
 
-## Local Development
+## 本地开发
 
-### 1. Install pnpm
+### 1. 安装 pnpm
 
-Make sure that pnpm is installed on your computer. If it's not already installed, you can install it:
+确保你的计算机上已经安装了 pnpm。如果尚未安装，你可以通过以下链接安装它：
 
 https://pnpm.io/installation
 
-### 2. Download project dependencies
+### 2. 下载项目依赖
 
-Navigate to the root directory of your project and run the following command to download project dependencies:
+导航到项目的根目录并运行以下命令以下载项目依赖：
 
 ```bash
 pnpm install
 ```
 
-### 3. Start the local server
+### 3. 启动本地服务器
 
-Run the following command to start the local development server:
+运行以下命令以启动本地开发服务器：
 
 ```bash
 pnpm dev
 ```
 
-### 4. Open the application
+### 4. 打开应用程序
 
-Vite should automatically open your browser.
+Vite 应该会自动打开你的浏览器。
 
-## Build the Project
+## 构建项目
 
-### Docker Build
+### Docker 构建
 
-#### 1. Run docker build
+#### 1. 运行 docker 构建
 
-Navigate to the root directory of your project in your command line interface and run the following command to build the Docker image:
+在命令行界面中导航到项目的根目录并运行以下命令以构建 Docker 镜像：
 
 ```bash
 docker build -t openai-translator-web .
 ```
 
-Here, `openai-translator-web` is the name you want to give to the image, and the `.` at the end indicates the current directory.
+这里 `openai-translator-web` 是你想要给镜像命名的名称，末尾的 `.` 表示当前目录。
 
-#### 2. Start the Container
+#### 2. 启动容器
 
-Run the following command to start the container and map the port to your local machine:
+运行以下命令以启动容器并将端口映射到你的本地机器：
 
 ```bash
 docker run -p 3000:80 openai-translator-web
 ```
 
-Here, 3000 represents the local port you want to map to the container's 80 port. You can change this to any other port you prefer.
+这里 3000 表示你想要映射到容器的 80 端口的本地端口。你可以将其更改为你喜欢的任何其他端口。
 
-#### 3. Open the Application
+#### 3. 打开应用程序
 
-In your browser, enter the following URL to access the application:
+在你的浏览器中，输入以下 URL 以访问应用程序：
 
 http://localhost:3000/
 
-### Local Build
+### 本地构建
 
-#### 1. Install pnpm
+#### 1. 安装 pnpm
 
-Make sure that pnpm is installed on your computer. If it's not already installed, you can install it:
+确保你的计算机上已经安装了 pnpm。如果尚未安装，你可以通过以下链接安装它：
 
 https://pnpm.io/installation
 
-#### 2. Download project dependencies
+#### 2. 下载项目依赖
 
-Navigate to the root directory of your project and run the following command to download project dependencies:
+导航到项目的根目录并运行以下命令以下载项目依赖：
 
 ```bash
 pnpm install
 ```
 
-#### 3. Build
+#### 3. 构建
 
-Run the following command to build your project:
+运行以下命令以构建你的项目：
 
 ```bash
 pnpm build
 ```
 
-The compiled files will be placed in the `dist` folder.
+编译后的文件将放置在 `dist` 文件夹中。
 
-#### 4. Deploy
+#### 4. 部署
 
-Now you can treat the files in the `dist` folder as a static website and deploy it on the server.
+现在你可以将 `dist` 文件夹中的文件视为静态网站，并在服务器上部署它。
 
-## Credit
+## 致谢
 
-- Inspired by https://github.com/yetone/bob-plugin-openai-translator
+- 灵感来源于 https://github.com/yetone/bob-plugin-openai-translator
+
+### 服务器docker一键部署
+
+#### 1. 下载zip
+
+下载zip后放置在服务器上
+
+#### 2. 调整setup.sh目录
+
+单独将setup.sh放置到zip同层级目录下
+
+#### 3. 为避免在windows上调整setup.sh后无法在linux上执行，需要执行以下命令（非必须）
+
+```bash
+sed -i -e 's/\r$//' setup.sh
+```
+
+#### 4. 授权执行
+
+```bash
+chmod +x setup.sh
+```
+
+#### 5. 执行脚本
+
+```bash
+./setup.sh
+```
