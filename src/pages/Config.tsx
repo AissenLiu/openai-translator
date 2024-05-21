@@ -21,10 +21,9 @@ function ConfigPage() {
       event.preventDefault();
       const defaults = {
         openaiApiUrl: 'https://api.chatmiko.com',
-        openaiApiKey:
-          'eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ1c2VyLWNlbnRlciIsImV4cCI6MTcyMzM1NDM3NSwiaWF0IjoxNzE1NTc4Mzc1LCJqdGkiOiJjcDBxYzFxdG5uMHF0MzFuOGpsZyIsInR5cCI6InJlZnJlc2giLCJzdWIiOiJjbXNmZTdnM3IwNzJrNnY2dTh2ZyIsInNwYWNlX2lkIjoiY21zZmU3ZzNyMDcyazZ2NnU4djAiLCJhYnN0cmFjdF91c2VyX2lkIjoiY21zZmU3ZzNyMDcyazZ2NnU4dWcifQ.hV9VWF1Oms-ytgmTlgIORhw2Rg_Kk1NnRWvzQsDSd5BRtTlOkeidvWii3caJuuNu-iJ1ly6sCt9A6CN9TGIJZA',
+        openaiApiKey: 'apiKey',
         streamEnabled: '',
-        selectedModel: 'kimi',
+        selectedModel: 'gpt-4o',
         temperatureParam: 0.7,
       };
       console.log(defaults);
