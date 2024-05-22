@@ -2,7 +2,7 @@ import { useCallback, useState } from 'react';
 
 import OpenAIClient from '@/client';
 import { GPT_MODELS, GPTModel } from '@/constants';
-import { BaiduResponse, ChatCompletionsResponse, OpenAIModel } from '@/types';
+import { ChatCompletionsResponse, OpenAIModel } from '@/types';
 
 function getRadomNumber(min: number, max: number) {
   return Math.random() * (max - min) + min;
@@ -62,17 +62,15 @@ export function useChatGPTStream() {
               setLoading(false);
               return;
             }
-            // const parsedData = JSON.parse(event.data) as ChatCompletionsResponse;
-            // const text = parsedData.choices
-            //   .map((choice) => {
-            //     if (choice.delta) {
-            //       return choice.delta.content;
-            //     }
-            //     return '';
-            //   })
-            //   .join('');
-            const parsedData = JSON.parse(event.data) as BaiduResponse;
-            const text = parsedData.result;
+            const parsedData = JSON.parse(event.data) as ChatCompletionsResponse;
+            const text = parsedData.choices
+              .map((choice) => {
+                if (choice.delta) {
+                  return choice.delta.content;
+                }
+                return '';
+              })
+              .join('');
             setData((prev) => prev + text);
           },
           onclose() {
