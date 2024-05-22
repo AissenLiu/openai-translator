@@ -43,6 +43,22 @@ export type ChatCompletionsResponse = {
   }[];
 };
 
+export type BaiduResponse = {
+  id: string;
+  object: string;
+  created: number;
+  sentence_id: number;
+  is_end: boolean;
+  is_truncated: boolean;
+  result: string;
+  need_clear_history: boolean;
+  usage: {
+    prompt_tokens: number;
+    completion_tokens: number;
+    total_tokens: number;
+  };
+};
+
 export type HistoryRecord = {
   id: string;
   text: string;

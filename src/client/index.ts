@@ -165,42 +165,62 @@ export async function chatCompletionsStream(
   const { url, headers } = endpoints.v1.chat.completions;
 
   const body = {
-    model,
+    // model,
     temperature,
-    // eslint-disable-next-line camelcase
-    max_tokens: maxTokens,
-    // eslint-disable-next-line camelcase
-    top_p: topP,
-    // eslint-disable-next-line camelcase
-    frequency_penalty: frequencyPenalty,
-    // eslint-disable-next-line camelcase
-    presence_penalty: presencePenalty,
+    // // eslint-disable-next-line camelcase
+    // max_tokens: maxTokens,
+    // // eslint-disable-next-line camelcase
+    // top_p: topP,
+    // // eslint-disable-next-line camelcase
+    // frequency_penalty: frequencyPenalty,
+    // // eslint-disable-next-line camelcase
+    // presence_penalty: presencePenalty,
+    system:
+      '一位多才多艺、全面综合的翻译官，能够处理包括技术文件、法律合同、文学作品和日常对话在内的各种内容。在翻译过程中，不仅会准确传达文本的字面意思，还会注意其细微差别、文化参照和语气。此外，会保持翻译的一致性和风格，特别注意成语、幽默和文字游戏，确保原文的精髓得到巧妙保留并顺利转换为目标语言。致力于提供不仅语法正确，而且适合上下文并吸引目标受众的翻译。' +
+      '  1. 不重复用户的原始输入。' +
+      '  2. 准确传达原文的事实和背景，不丢失任何细节。' +
+      '  3. 保留原始段落格式，术语如FLAC，JPEG等，公司缩写如Microsoft, Amazon等。' +
+      '  4. 保留引用的论文格式，如[20]。' +
+      '  5. 输入输出格式均为Markdown。' +
+      '  6. 如用户指定翻译语气，需遵循用户指定的风格。' +
+      '  7. 无法直接翻译的内容需联系用户确认。' +
+      '  8. 只会给出最终的翻译结果，不会提供其他任何内容。' +
+      '  9. 拒绝翻译服务以外的一切请求。',
     stream: true,
     messages: [
-      {
-        role: 'system',
-        content:
-          '-- Roles and Goal: 一位多才多艺、全面综合的翻译官，能够处理包括技术文件、法律合同、文学作品和日常对话在内的各种内容。在翻译过程中，不仅会准确传达文本的字面意思，还会注意其细微差别、文化参照和语气。此外，会保持翻译的一致性和风格，特别注意成语、幽默和文字游戏，确保原文的精髓得到巧妙保留并顺利转换为目标语言。致力于提供不仅语法正确，而且适合上下文并吸引目标受众的翻译。\n' +
-          '- Constrains: \n' +
-          '  1. 不重复用户的原始输入。\n' +
-          '  2. 准确传达原文的事实和背景，不丢失任何细节。\n' +
-          '  3. 保留原始段落格式，术语如FLAC，JPEG等，公司缩写如Microsoft, Amazon等。\n' +
-          '  4. 保留引用的论文格式，如[20]。\n' +
-          '  5. 输入输出格式均为Markdown。\n' +
-          '  6. 如用户指定翻译语气，需遵循用户指定的风格。\n' +
-          '  7. 无法直接翻译的内容需联系用户确认。\n' +
-          '  8. 只会给出最终的翻译结果，不会提供其他任何内容。\n' +
-          '  9. 拒绝翻译服务以外的一切请求。',
-      },
+      // {
+      //   role: 'user',
+      //   content:
+      //     '-- Roles and Goal: 一位多才多艺、全面综合的翻译官，能够处理包括技术文件、法律合同、文学作品和日常对话在内的各种内容。在翻译过程中，不仅会准确传达文本的字面意思，还会注意其细微差别、文化参照和语气。此外，会保持翻译的一致性和风格，特别注意成语、幽默和文字游戏，确保原文的精髓得到巧妙保留并顺利转换为目标语言。致力于提供不仅语法正确，而且适合上下文并吸引目标受众的翻译。\n' +
+      //     '- Constrains: \n' +
+      //     '  1. 不重复用户的原始输入。\n' +
+      //     '  2. 准确传达原文的事实和背景，不丢失任何细节。\n' +
+      //     '  3. 保留原始段落格式，术语如FLAC，JPEG等，公司缩写如Microsoft, Amazon等。\n' +
+      //     '  4. 保留引用的论文格式，如[20]。\n' +
+      //     '  5. 输入输出格式均为Markdown。\n' +
+      //     '  6. 如用户指定翻译语气，需遵循用户指定的风格。\n' +
+      //     '  7. 无法直接翻译的内容需联系用户确认。\n' +
+      //     '  8. 只会给出最终的翻译结果，不会提供其他任何内容。\n' +
+      //     '  9. 拒绝翻译服务以外的一切请求。',
+      // },
       { role: 'user', content: prompt + ':' + `${query}` },
     ],
   };
-  const response = await fetchEventSource(baseUrl + url, {
+  // const response = await fetchEventSource(baseUrl + url, {
+  //   method: 'POST',
+  //   body: JSON.stringify(body),
+  //   headers: {
+  //     ...headers,
+  //     Authorization: `Bearer ${token}`,
+  //   },
+  //   openWhenHidden: true,
+  //   ...options,
+  // });
+  const response = await fetchEventSource(baseUrl, {
     method: 'POST',
     body: JSON.stringify(body),
     headers: {
       ...headers,
-      Authorization: `Bearer ${token}`,
     },
     openWhenHidden: true,
     ...options,

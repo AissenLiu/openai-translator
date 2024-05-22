@@ -70,14 +70,14 @@ export function GlobalProvider(props: Props) {
     openaiApiKey: 'apiKey',
     streamEnabled: true,
     currentModel: 'deepseek-chat',
-    temperatureParam: 1.1,
+    temperatureParam: 1,
   });
   const {
     openaiApiUrl = 'https://api.chatmiko.com',
     openaiApiKey = 'apiKey',
     streamEnabled = true,
     currentModel = 'deepseek-chat',
-    temperatureParam = 1.1,
+    temperatureParam = 1,
   } = configValues;
 
   const {
