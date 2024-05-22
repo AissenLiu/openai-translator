@@ -27,11 +27,11 @@ type GlobalContextValue = {
 
 const GlobalContext = createContext<GlobalContextValue>({
   configValues: {
-    openaiApiUrl: 'https://api.chatmiko.com',
-    openaiApiKey: 'apiKey',
+    openaiApiUrl: '',
+    openaiApiKey: '',
     streamEnabled: true,
-    currentModel: 'gpt-4o',
-    temperatureParam: 0.7,
+    currentModel: 'deepseek-chat',
+    temperatureParam: 1.1,
   },
   setConfigValues: () => undefined,
   translator: {
@@ -69,15 +69,15 @@ export function GlobalProvider(props: Props) {
     openaiApiUrl: 'https://api.chatmiko.com',
     openaiApiKey: 'apiKey',
     streamEnabled: true,
-    currentModel: 'gpt-4o',
-    temperatureParam: 0.7,
+    currentModel: 'deepseek-chat',
+    temperatureParam: 1.1,
   });
   const {
     openaiApiUrl = 'https://api.chatmiko.com',
     openaiApiKey = 'apiKey',
     streamEnabled = true,
-    currentModel = 'gpt-4o',
-    temperatureParam = 0.7,
+    currentModel = 'deepseek-chat',
+    temperatureParam = 1.1,
   } = configValues;
 
   const {

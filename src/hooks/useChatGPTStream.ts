@@ -33,9 +33,6 @@ export function useChatGPTStream() {
         return;
       }
 
-      const tmpParam =
-        +temperatureParam > 0.4 && +temperatureParam <= 1.0 ? +temperatureParam : getRadomNumber(0.5, 1.0);
-
       const isGptModel = GPT_MODELS.includes(engine as GPTModel);
 
       OpenAIClient.chatCompletionsStream(
@@ -44,7 +41,7 @@ export function useChatGPTStream() {
           prompt,
           query: queryText,
           model: isGptModel ? (engine as GPTModel) : 'gpt-3.5-turbo',
-          temperature: tmpParam,
+          temperature: temperatureParam,
         },
         {
           async onopen(res) {

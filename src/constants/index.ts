@@ -1,6 +1,7 @@
 /* eslint-disable camelcase */
 
 export const GPT_MODELS = [
+  'deepseek-chat',
   'gpt-4o',
   'gpt-3.5-turbo-0613',
   'gpt-3.5-turbo-0301',
@@ -22,6 +23,7 @@ export type GPTModel = (typeof GPT_MODELS)[number];
 export type OpenAIModel = (typeof OPENAI_MODELS)[number];
 
 export const OPENAI_MODELS_TITLES: Record<OpenAIModel, string> = {
+  'deepseek-chat': 'deepseek-chat',
   'gpt-4o': 'gpt-4o',
   'text-davinci-003': 'text-davinci-003',
   'text-davinci-002': 'text-davinci-002',
@@ -40,6 +42,7 @@ export const OPENAI_MODELS_TITLES: Record<OpenAIModel, string> = {
 } as const;
 
 export const OPENAI_MODELS_DESCRIPTION: Record<OpenAIModel, string> = {
+  'deepseek-chat': 'deepseek-chat',
   'gpt-4o': 'gpt-4o',
   'text-davinci-003': 'Text Davinci 003',
   'text-davinci-002': 'Text Davinci 002',
